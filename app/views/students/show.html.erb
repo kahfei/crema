@@ -24,6 +24,12 @@
   <strong>School:</strong>
   <%= @student.school %>
 </p>
+<p>
+  <strong>Subjects taken:</strong>
+  <% @student.subjects.each do |subject| %>
+    <%= subject.name %>
+  <% end %>
+</p>
 
 <p>
   <strong>Tuition fee:</strong>

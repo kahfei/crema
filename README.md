@@ -3,7 +3,8 @@
 Tuition Center Management apps, with these models
 * Students
 * Subjects
-* Class
+* enrolments
+
 
 Features:
 * Student registration

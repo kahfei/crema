@@ -11,10 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130913233816) do
+ActiveRecord::Schema.define(version: 20130914042007) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "enrolments", force: true do |t|
+    t.integer  "student_id"
+    t.integer  "subject_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "enrolments", ["student_id"], name: "index_enrolments_on_student_id", using: :btree
+  add_index "enrolments", ["subject_id"], name: "index_enrolments_on_subject_id", using: :btree
 
   create_table "students", force: true do |t|
     t.string   "name"
@@ -23,6 +33,12 @@ ActiveRecord::Schema.define(version: 20130913233816) do
     t.string   "mobile"
     t.string   "school"
     t.decimal  "tuition_fee"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "subjects", force: true do |t|
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

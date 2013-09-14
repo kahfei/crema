@@ -32,6 +32,12 @@
     <%= f.text_field :school %>
   </div>
   <div class="field">
+    <% @subjects.each do |subject| %>
+      <li><%= check_box_tag :subject_ids, subject.id, @student.subjects.include?(subject), :name => 'student[subject_ids][]' %><%= subject.name %></li>
+    <% end %>
+
+  </div>
+  <div class="field">
     <%= f.label :tuition_fee %><br>
     <%= f.text_field :tuition_fee %>
   </div>

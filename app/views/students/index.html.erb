@@ -8,6 +8,7 @@
       <th>Email</th>
       <th>Mobile</th>
       <th>School</th>
+      <th>Subjects taken</th>
       <th>Tuition fee</th>
       <th></th>
       <th></th>
@@ -23,6 +24,10 @@
         <td><%= student.email %></td>
         <td><%= student.mobile %></td>
         <td><%= student.school %></td>
+        <td><% student.subjects.each do |subject| %>
+              <%= subject.name %>
+            <% end %>
+        </td>
         <td><%= student.tuition_fee %></td>
         <td><%= link_to 'Show', student %></td>
         <td><%= link_to 'Edit', edit_student_path(student) %></td>

@@ -15,10 +15,12 @@ class StudentsController < ApplicationController
   # GET /students/new
   def new
     @student = Student.new
+    @subjects = Subject.all
   end
 
   # GET /students/1/edit
   def edit
+    @subjects = Subject.all
   end
 
   # POST /students
@@ -69,6 +71,6 @@ class StudentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def student_params
-      params.require(:student).permit(:name, :registration_number, :email, :mobile, :school, :tuition_fee)
+      params.require(:student).permit(:name, :registration_number, :email, :mobile, :school, :tuition_fee, :subject_ids => [])
     end
 end
