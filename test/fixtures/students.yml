@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  student_id: MyString
+  email: MyString
+  mobile: MyString
+  school: MyString
+  tuition_fee: 9.99
+
+two:
+  name: MyString
+  student_id: MyString
+  email: MyString
+  mobile: MyString
+  school: MyString
+  tuition_fee: 9.99
