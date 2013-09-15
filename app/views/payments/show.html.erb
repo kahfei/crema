@@ -1,0 +1,15 @@
+<p id='notice'><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @payment.student.name %>
+</p>
+<p>
+  <strong>Amount:</strong>
+  <%= @payment.amount %>
+</p>
+<p>
+  <strong>Paid for the month of</strong>
+  <%= @payment.paid_for_month %>
+</p>
+<%= debug(params) if Rails.env.development?%>

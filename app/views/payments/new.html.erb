@@ -1,0 +1,13 @@
+<%= form_for(@payment) do |f| %>
+  	<%= @student.name %>
+	<div class="field">
+		<%= f.label :paid_for_month %>
+	  	<%= select_month(Date.today, {}, :name => "payment[paid_for_month]")%>
+	</div>
+  	<div class="field">
+   		<%= f.label :amount %>
+    	<%= f.text_field :amount, :value => @student.tuition_fee %>
+	</div>
+		<%= f.hidden_field :student_id, :value => @student.id %>
+	<%= f.submit "Confirm Payment" %>
+<% end %>

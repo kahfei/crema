@@ -1,4 +1,6 @@
 Crema::Application.routes.draw do
+  resources :payments
+
   resources :enrolments
 
   resources :subjects
