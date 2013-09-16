@@ -1,5 +1,4 @@
 <p id="notice"><%= notice %></p>
-
 <p>
   <strong>Name:</strong>
   <%= @student.name %>
@@ -35,6 +34,12 @@
   <strong>Tuition fee:</strong>
   <%= @student.tuition_fee %>
 </p>
+<h1>Payment History</h1>
+<% @student.payments.each do |payment| %>
+  <%= payment.created_at %>
+  <%= payment.paid_for_month %>
+  <%= payment.amount %>
+<% end %>
 
 <%= link_to 'Making Payment', new_payment_path(:student_id => @student) %>
 
