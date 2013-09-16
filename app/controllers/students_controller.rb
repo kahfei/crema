@@ -16,6 +16,8 @@ class StudentsController < ApplicationController
   def new
     @student = Student.new
     @subjects = Subject.all
+    # generate registration number based on last student id
+    @registration_number = Student.last.generate_registration_number
   end
 
   # GET /students/1/edit
@@ -28,11 +30,16 @@ class StudentsController < ApplicationController
   def create
     @student = Student.new(student_params)
 
+
     respond_to do |format|
       if @student.save
         format.html { redirect_to @student, notice: 'Student was successfully created.' }
         format.json { render action: 'show', status: :created, location: @student }
       else
+        # when student creation fail validation, creation action render new action,
+        # problem is, "create" don't have @subjects = Subject.all, "each" in view will
+        # fail nil class error
+        @subjects = Subject.all 
         format.html { render action: 'new' }
         format.json { render json: @student.errors, status: :unprocessable_entity }
       end
