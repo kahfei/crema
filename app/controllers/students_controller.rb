@@ -17,7 +17,7 @@ class StudentsController < ApplicationController
     @student = Student.new
     @subjects = Subject.all
     # generate registration number based on last student id
-    @registration_number = Student.last.generate_registration_number
+    @registration_number = Student.try(:last).generate_registration_number
   end
 
   # GET /students/1/edit
