@@ -16,8 +16,12 @@ class StudentsController < ApplicationController
   def new
     @student = Student.new
     @subjects = Subject.all
-    # generate registration number based on last student id
-    @registration_number = Student.try(:last).generate_registration_number
+    # generate registration number based on last student id, if it is the first ever student, "PLN-000001"
+    if Student.any? 
+      @registration_number = Student.last.generate_registration_number
+    else
+      @registration_number = "PLN-000001"
+    end
   end
 
   # GET /students/1/edit
