@@ -17,8 +17,13 @@
   </div>
   <div class="form-group">
     <%= f.label :registration_number %>
+    <% if @student.id %>
+    <%= @student.registration_number %>
+    <% else %>
     <%= f.text_field :registration_number, :value => @registration_number %>
+    <% end %>
   </div>
+
   <div class="form-group">
     <%= f.label :email %>
     <%= f.text_field :email %>
