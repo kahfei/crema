@@ -2,6 +2,7 @@
 
 /* mixin, variables, etc */
 $grayMediumLight: #eaeaea;
+$lightGray: #535353;
 
 @mixin box_sizing {
   -moz-box-sizing: border-box;
@@ -15,8 +16,10 @@ html {
   overflow-y: scroll;
 }
 body {
+  color: $lightGray;
   padding-top: 60px;
 }
+
 section {
   overflow: auto;
 }
@@ -30,6 +33,17 @@ textarea {
   margin-bottom: 10px;
 }
 /* typography */
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+.container {
+
+}
+p, ol, ul, td {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+}
 
 h1, h2, h3, h4, h5, h6 {
   line-height: 1;
@@ -59,11 +73,13 @@ li {
 
 #logo {
   float: left;
+  background: url(/assets/tutorbox_logo_180.png) no-repeat;
+  height: 35px;
+  width: 180px;
   margin-right: 10px;
-  font-size: 1.7em;
+  text-indent: -9999px;
   color: #fff;
-  text-transform: uppercase;
-  letter-spacing: -1px;
+  margin-top: 10px;
   padding-top: 9px;
   font-weight: bold;
   line-height: 1;
@@ -108,6 +124,10 @@ input, textarea, select, .uneditable-input {
 
 input {
   height: auto !important;
+}
+.welcome-info {
+  font-size: 1.3em;
+  padding-top: 20px;
 }
 
 /* student */

@@ -37,12 +37,17 @@
     <%= f.text_field :school %>
   </div>
   
+
   <div class="checkbox">
+    <%= f.label :subject %>
     <% @subjects.each do |subject| %>
       <li><%= check_box_tag :subject_ids, subject.id, @student.subjects.include?(subject), :name => 'student[subject_ids][]' %><%= subject.name %></li>
     <% end %>
-
   </div>
+  <% if @subjects.blank? %>
+    <p>There are no subjects in the record, create one?</p>
+
+  <% end %>
   <div class="actions">
     <%= f.submit "Create Student", :class => "btn btn-default" %>
   </div>
