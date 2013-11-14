@@ -1,5 +1,6 @@
 Crema::Application.routes.draw do
 
+  get "welcome/home"
   resources :users
 
   resources :payments
@@ -18,7 +19,7 @@ Crema::Application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'students#index'
+  root 'welcome#home'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

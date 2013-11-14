@@ -1,4 +1,3 @@
-<% if @students.any? %>
 <h1>Listing students</h1>
 
 <table class="table table-hover table-condensed">
@@ -38,7 +37,4 @@
   </tbody>
 </table>
 <br>
-<% else %>
-    <p class="welcome-info">Welcome to tutorbox. You haven't register any student yet, let's get started :-) </p>
-<% end %>
 <%= link_to 'New Student', new_student_path, :class => "btn btn-warning btn-large" %>
