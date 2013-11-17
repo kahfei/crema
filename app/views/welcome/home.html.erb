@@ -1,6 +1,18 @@
+<% if @subjects.empty? && @students.empty? %>
 
+<div class="jumbotron">
 	<h1>Welcome to tutorbox, what's next?</h1>
+	<p class="lead">Look like you haven't create any record, let's get started by adding in subject <%= link_to "Add Subject", new_subject_path, class: "btn btn-large btn-primary" %></p> 
+</div>
 
-	<p class="lead">There aren't any records yet, let's get started by adding in subject <%= link_to "Add Subject", new_subject_path%></p> 
+<% end %>
+
+<div class="row">	
+		<div class="col-sm-4"><%= pluralize(@students.count, 'student') %></div>
+		<div class="col-sm-4"><%= pluralize(@subjects.count, 'subject') %></div>
+</div>
+
+
+
 
 
