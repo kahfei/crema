@@ -1,15 +1,32 @@
 <% if @subjects.empty? && @students.empty? %>
 
 <div class="jumbotron">
-	<h1>Welcome to tutorbox, what's next?</h1>
-	<p class="lead">Look like you haven't create any record, let's get started by adding in subject <%= link_to "Add Subject", new_subject_path, class: "btn btn-large btn-primary" %></p> 
+	<p class="lead"><h1>Welcome to tutorbox</h1> look like you haven't create any record, let's get started by adding subject <%= link_to "Add Subject", new_subject_path, class: "btn btn-large btn-primary" %></p> 
 </div>
 
 <% end %>
 
 <div class="row">	
-		<div class="col-sm-4"><%= pluralize(@students.count, 'student') %></div>
-		<div class="col-sm-4"><%= pluralize(@subjects.count, 'subject') %></div>
+		<div class="col-sm-3">
+			<div class="thumbnail">
+				<%= pluralize(@students.count, 'student') %>
+			</div>
+		</div>
+		<div class="col-sm-3">
+			<div class="thumbnail">
+				<%= pluralize(@subjects.count, 'subject') %>
+			</div>
+		</div>
+		<div class="col-sm-3">
+			<div class="thumbnail">
+				total payments
+			</div>
+		</div>
+		<div class="col-sm-3">
+			<div class="thumbnail">
+				total payments pending
+			</div>
+		</div>
 </div>
 
 
