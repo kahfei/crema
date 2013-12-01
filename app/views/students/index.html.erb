@@ -13,6 +13,7 @@
       <th></th>
       <th></th>
       <th></th>
+      <th></th>
     </tr>
   </thead>
 
@@ -25,10 +26,15 @@
         <td><%= student.mobile %></td>
         <td><%= student.school %></td>
         <td><% student.subjects.each do |subject| %>
-              <%= subject.name %>
+              <li><%= subject.name %></li>
             <% end %>
         </td>
         <td><%= student.tuition_fee %></td>
+        <td><button class="payment-toggle">Payment</button>
+          <div class="payment-details" style="display:none">
+            <%= link_to 'Make Payment', new_payment_path(:student_id => student) %>
+          </div>
+        </td>
         <td><%= link_to 'Show', student %></td>
         <td><%= link_to 'Edit', edit_student_path(student) %></td>
         <td><%= link_to 'Destroy', student, method: :delete, data: { confirm: 'Are you sure?' } %></td>
