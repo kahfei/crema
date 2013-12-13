@@ -2,7 +2,7 @@
   	<%= @student.name %>
 	<div class="field">
 		<%= f.label :paid_for_month %>
-	  	<%= select_month(Date.today, {}, :name => "payment[paid_for_month]")%>
+	  	<%= select_month(@student.due_month, {}, :name => "payment[paid_for_month]")%>
 	</div>
   	<div class="field">
    		<%= f.label :amount %>

@@ -32,7 +32,10 @@
         <td><%= student.tuition_fee %></td>
         <td><button class="payment-toggle">Payment</button>
           <div class="payment-details" style="display:none">
-            <%= link_to 'Make Payment', new_payment_path(:student_id => student) %>
+            <li><%= link_to 'Make Payment', new_payment_path(:student_id => student) %></li>
+            <% unless student.payments.empty? %>
+              <li>Last paid <%= Date::MONTHNAMES[(student.payments.last.paid_for_month).to_i] %>, <%= ringgit(student.payments.last.amount) %> </li>
+            <% end %>
           </div>
         </td>
         <td><%= link_to 'Show', student %></td>
