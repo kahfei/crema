@@ -29,15 +29,16 @@
               <li><%= subject.name %></li>
             <% end %>
         </td>
-        <td><%= student.tuition_fee %></td>
-        <td><button class="payment-toggle">Payment</button>
-          <div class="payment-details" style="display:none">
-            <li><%= link_to 'Make Payment', new_payment_path(:student_id => student) %></li>
-            <% unless student.payments.empty? %>
-              <li>Last paid <%= Date::MONTHNAMES[(student.payments.last.paid_for_month).to_i] %>, <%= ringgit(student.payments.last.amount) %> </li>
-            <% end %>
-          </div>
+        <td><%= ringgit(student.tuition_fee) %>
+          <span class="payment-toggle glyphicon glyphicon-plus-sign"></span>
+            <div class="payment-details" style="display:none">
+              <li><%= link_to 'Make Payment', new_payment_path(:student_id => student) %></li>
+              <% unless student.payments.empty? %>
+                <li>Last paid <%= Date::MONTHNAMES[(student.payments.last.paid_for_month).to_i] %>, <%= ringgit(student.payments.last.amount) %> </li>
+              <% end %>
+            </div>
         </td>
+        
         <td><%= link_to 'Show', student %></td>
         <td><%= link_to 'Edit', edit_student_path(student) %></td>
         <td><%= link_to 'Destroy', student, method: :delete, data: { confirm: 'Are you sure?' } %></td>
